@@ -1,0 +1,18 @@
+{
+  "name": "pi-github-copilot-usage",
+  "version": "0.1.0",
+  "description": "Pi extension for viewing GitHub Copilot usage stats in your org",
+  "keywords": ["pi-package", "pi-extension", "github", "copilot", "usage"],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DxVapor/pi-github-copilot-usage"
+  },
+  "peerDependencies": {
+    "@mariozechner/pi-coding-agent": "*",
+    "@sinclair/typebox": "*"
+  },
+  "pi": {
+    "extensions": ["./extensions"]
+  }
+}
