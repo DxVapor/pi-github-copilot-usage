@@ -11,8 +11,11 @@ A [pi](https://github.com/mariozechner/pi-coding-agent) extension that surfaces 
 
 ## Requirements
 
-- A GitHub token in `GITHUB_TOKEN` with **`manage_billing:copilot`** scope (or `read:org` for usage-only)
 - GitHub Copilot enabled on the org or enterprise
+- A GitHub token with **`manage_billing:copilot`** scope (seats + usage) or **`read:org`** (usage only)
+
+> **Note:** Pi's built-in GitHub Copilot OAuth token is **not** reused here — pi only requests `read:user`
+> scope for model access, which is insufficient for org-level billing/usage endpoints.
 
 ## Installation
 
@@ -28,11 +31,10 @@ pi install git:github.com/DxVapor/pi-github-copilot-usage
 
 ## Usage
 
-Set your token:
+Token resolution order (no config needed if `gh` is already authenticated):
 
-```bash
-export GITHUB_TOKEN=ghp_...
-```
+1. `GITHUB_TOKEN` env var
+2. `gh` CLI session token (`gh auth login` with the right scopes)
 
 Then ask pi naturally:
 
